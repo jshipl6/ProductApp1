@@ -48,6 +48,12 @@ builder.Services.AddSingleton<IPriceCalculator, PriceCalculator>();
 - Shared feature views: `/Features/Shared/{View}.cshtml`
 - Fallback to MVC defaults: `/Views/{Controller}/{View}.cshtml`, `/Views/Shared/{View}.cshtml`
 
+## Persistence
+The app uses **Entity Framework Core (SQLite)** for persistence. Products are stored in `app.db`.
+Migrations are included (`InitialCreate`). To recreate the DB:
+- Run `Update-Database` in Package Manager Console.
+
+
 
 
 ## How to Run
