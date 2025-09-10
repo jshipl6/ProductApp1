@@ -14,6 +14,14 @@ It displays a list of products, allows adding new ones, and uses Tag Helpers and
 - Visual Studio 2022 (with ASP.NET and web workload installed)
 - .NET 6 SDK or newer
 
+## Design note: Separation of Concerns & DI
+
+I introduced a domain service `IPriceCalculator` with an implementation `PriceCalculator`.  
+The service is **stateless**, so I registered it as a **Singleton** in `Program.cs`:
+```csharp
+builder.Services.AddSingleton<IPriceCalculator, PriceCalculator>();
+
+
 ## How to Run
 1. Clone the repo:
    ```bash

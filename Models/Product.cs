@@ -11,5 +11,8 @@ namespace ProductApp.Models
 
         [Range(0, 100000)]
         public decimal Price { get; set; }
+
+        // calculated at controller using service 
+        public decimal PriceWithTax { get; set; }
     }
 }

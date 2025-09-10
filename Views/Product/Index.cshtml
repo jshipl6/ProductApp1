@@ -6,7 +6,6 @@
 <h1 class="display-6">Products</h1>
 
 <p>
-    <!-- Navigation Tag Helper -->
     <a class="btn btn-outline-secondary"
        asp-controller="Home" asp-action="Index">Back to Home</a>
 </p>
@@ -17,6 +16,7 @@
             <th>Id</th>
             <th>Name</th>
             <th class="text-end">Price</th>
+            <th class="text-end">Price + Tax</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +26,7 @@
                 <td>@p.Id</td>
                 <td>@p.Name</td>
                 <td class="text-end">@p.Price.ToString("C")</td>
+                <td class="text-end">@p.PriceWithTax.ToString("C")</td>
             </tr>
         }
     </tbody>
@@ -35,22 +36,14 @@
 
 <h2 class="h5">Add a product</h2>
 
-<!-- FORM Tag Helpers -->
 <form asp-action="Add" asp-controller="Product" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="mb-3">
-        <label asp-for="@(new ProductApp.Models.Product().Name)" class="form-label"></label>
-        <input asp-for="@(new ProductApp.Models.Product().Name)" name="Name" class="form-control" />
-        <span asp-validation-for="@(new ProductApp.Models.Product().Name)" class="text-danger"></span>
+        <label>Name</label>
+        <input name="Name" class="form-control" />
     </div>
     <div class="mb-3">
-        <label asp-for="@(new ProductApp.Models.Product().Price)" class="form-label"></label>
-        <input asp-for="@(new ProductApp.Models.Product().Price)" name="Price" class="form-control" />
-        <span asp-validation-for="@(new ProductApp.Models.Product().Price)" class="text-danger"></span>
+        <label>Price</label>
+        <input name="Price" class="form-control" />
     </div>
     <button type="submit" class="btn btn-primary">Add</button>
 </form>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}

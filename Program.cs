@@ -1,15 +1,20 @@
+﻿using ProductApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to container
 builder.Services.AddControllersWithViews();
+
+// Register domain service with DI
+builder.Services.AddSingleton<IPriceCalculator, PriceCalculator>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    
     app.UseHsts();
 }
 
