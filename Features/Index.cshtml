@@ -30,19 +30,19 @@
         </tr>
     </thead>
     <tbody>
-    @foreach (var p in Model)
-    {
-        <tr>
-            <td>@p.Id</td>
-            <td>@p.Name</td>
-            <td class="text-end">@p.Price.ToString("C")</td>
-            <td class="text-end">@p.PriceWithTax.ToString("C")</td>
-            <td class="text-end">
-                <a class="btn btn-sm btn-outline-secondary me-1" asp-action="Details" asp-route-id="@p.Id">Details</a>
-                <a class="btn btn-sm btn-outline-warning me-1" asp-action="Edit" asp-route-id="@p.Id">Edit</a>
-                <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@p.Id">Delete</a>
-            </td>
-        </tr>
-    }
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Name</td>
+                <td class="text-end">@p.Price.ToString("C")</td>
+                <td class="text-end">@p.PriceWithTax.ToString("C")</td>
+                <td class="text-end">
+                    <a class="btn btn-sm btn-outline-secondary me-1" asp-action="Details" asp-route-id="@p.Id">Details</a>
+                    <a class="btn btn-sm btn-outline-warning me-1" asp-action="Edit" asp-route-id="@p.Id">Edit</a>
+                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@p.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
